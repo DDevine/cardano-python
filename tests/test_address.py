@@ -7,7 +7,6 @@ from cardano.address import (
     IcarusAddress,
     ShelleyAddress,
 )
-from cardano.consts import Era
 
 from .example_addresses import (
     GENERAL_ERR,
@@ -21,11 +20,9 @@ from .example_addresses import (
 
 
 class BaseTestAddressOK(object):
-    address_list = None
-    AddressClass = None
-
     def test_address(self):
         for addr in self.address_list:
+            addrobj = self.AddressClass(addr)
             addrobj = address(addr)
             self.assertIsInstance(addrobj, self.AddressClass)
 
@@ -48,8 +45,10 @@ class TestShelleyAddressOK(BaseTestAddressOK, unittest.TestCase):
 class TestAddressERR(unittest.TestCase):
     def test_address(self):
         for addr in GENERAL_ERR + BYRON_ERR + ICARUS_ERR + SHELLEY_ERR:
-            print(addr)
-            self.assertRaises(ValueError, address, addr)
+            with self.assertRaises(ValueError):
+                a = address(addr)
+                # FIXME: hack to present verbose error messages when exception is NOT raised
+                raise AssertionError("{:s} did not raise ValueError and returned \"{}\" of type {}".format(addr, a, type(a)))
 
 
 class TestComparisons(unittest.TestCase):

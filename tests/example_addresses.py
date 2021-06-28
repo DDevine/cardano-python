@@ -32,9 +32,8 @@ BYRON_OK = [
     # specByron defaultPhrase "0H/2H" "mainnet",
     "DdzFFzCqrht4YH5irxboFprowLYgJLddd2iCQt5mrVyQS5CZFMeZbQtzJsHf4a6YQhPPNxtqBVP3Drsy1tdjecqq1FK1m2oAR5J8EcVe",
     # InspectSpec.hs
-    # TODO:
-    #    # specInspectAddress ["Byron", "none"] []
-    #    "37btjrVyb4KEgoGCHJ7XFaJRLBRiVuvcrQWPpp4HeaxdTxhKwQjXHNKL43NhXaQNa862BmxSFXZFKqPqbxRc3kCUeTRMwjJevFeCKokBG7A7num5Wh",
+    # specInspectAddress ["Byron", "none"] []
+    "37btjrVyb4KEgoGCHJ7XFaJRLBRiVuvcrQWPpp4HeaxdTxhKwQjXHNKL43NhXaQNa862BmxSFXZFKqPqbxRc3kCUeTRMwjJevFeCKokBG7A7num5Wh",
     # specInspectAddress ["Byron", "address_index", "account_index"]
     "DdzFFzCqrht5csm2GKhnVrjzKpVHHQFNXUDhAFDyLWVY5w8ZsJRP2uhwZq2CEAVzDZXYXa4GvggqYEegQsdKAKikFfrrCoHheLH2Jskr",
 ]
@@ -100,53 +99,50 @@ SHELLEY_OK = [
 ]
 
 ICARUS_ERR = [
-    # TODO:
-    #    # InspectSpec.hs
-    #    # specInspectAddress ["Icarus", "none"] []
-    #    "Ae2tdPwUPEYz6ExfbWubiXPB6daUuhJxikMEb4eXRp5oKZBKZwrbJ2k7EZe",
-    #    # specInspectInvalid "non-matching crc32" []
-    #    "Ae2tdPwUPEZ5QJkfzoJgarugsX3rUVbTjg8nqTYmuy2c2msy5augpnm91ZR",
-    #    # PointerSpec.hs
-    #    # specMalformedAddress
-    #    "Ae2tdPwUPEYz6ExfbWubiXPB6daUuhJxikMEb4eXRp5oKZBKZwrbJ2k7EZe",
+    # InspectSpec.hs
+    # specInspectAddress ["Icarus", "none"] []
+    "Ae2tdPwUPEYz6ExfbWubiXPB6daUuhJxikMEb4eXRp5oKZBKZwrbJ2k7EZe",
+    # specInspectInvalid "non-matching crc32" []
+    "Ae2tdPwUPEZ5QJkfzoJgarugsX3rUVbTjg8nqTYmuy2c2msy5augpnm91ZR",
+    # PointerSpec.hs
+    # specMalformedAddress
+    "Ae2tdPwUPEYz6ExfbWubiXPB6daUuhJxikMEb4eXRp5oKZBKZwrbJ2k7EZe",
 ]
 
 BYRON_ERR = [
-    # TODO:
-    #    # DelegationSpec.hs
-    #    # specMalformedAddress
-    #    "Ae2tdPwUPEYz6ExfbWubiXPB6daUuhJxikMEb4eXRp5oKZBKZwrbJ2k7EZe",
-    #    # specMalformedAddress
-    #    "DdzFFzCqrhsf6hiTYkK5gBAhVDwg3SiaHiEL9wZLYU3WqLUpx6DP5ZRJr4rtNRXbVNfk89FCHCDR365647os9AEJ8MKZNvG7UKTpythG",
-    #    # InspectSpec.hs
-    #    # specInspectAddress ["Byron", "none"] []
-    #    "37btjrVyb4KEgoGCHJ7XFaJRLBRiVuvcrQWPpp4HeaxdTxhKwQjXHNKL43NhXaQNa862BmxSFXZFKqPqbxRc3kCUeTRMwjJevFeCKokBG7A7num5Wh",
-    #    # specInspectAddress ["Byron", "address_index", "account_index"]
-    #    "DdzFFzCqrht5csm2GKhnVrjzKpVHHQFNXUDhAFDyLWVY5w8ZsJRP2uhwZq2CEAVzDZXYXa4GvggqYEegQsdKAKikFfrrCoHheLH2Jskr",
-    #    # PointerSpec.hs
-    #    # specMalformedAddress
-    #    "DdzFFzCqrhsf6hiTYkK5gBAhVDwg3SiaHiEL9wZLYU3WqLUpx6DP5ZRJr4rtNRXbVNfk89FCHCDR365647os9AEJ8MKZNvG7UKTpythG",
+    # DelegationSpec.hs
+    # specMalformedAddress
+    "Ae2tdPwUPEYz6ExfbWubiXPB6daUuhJxikMEb4eXRp5oKZBKZwrbJ2k7EZe",
+    # specMalformedAddress
+    "DdzFFzCqrhsf6hiTYkK5gBAhVDwg3SiaHiEL9wZLYU3WqLUpx6DP5ZRJr4rtNRXbVNfk89FCHCDR365647os9AEJ8MKZNvG7UKTpythG",
+    # InspectSpec.hs
+    # specInspectAddress ["Byron", "none"] []
+    "37btjrVyb4KEgoGCHJ7XFaJRLBRiVuvcrQWPpp4HeaxdTxhKwQjXHNKL43NhXaQNa862BmxSFXZFKqPqbxRc3kCUeTRMwjJevFeCKokBG7A7num5Wh",
+    # specInspectAddress ["Byron", "address_index", "account_index"]
+    "DdzFFzCqrht5csm2GKhnVrjzKpVHHQFNXUDhAFDyLWVY5w8ZsJRP2uhwZq2CEAVzDZXYXa4GvggqYEegQsdKAKikFfrrCoHheLH2Jskr",
+    # PointerSpec.hs
+    # specMalformedAddress
+    "DdzFFzCqrhsf6hiTYkK5gBAhVDwg3SiaHiEL9wZLYU3WqLUpx6DP5ZRJr4rtNRXbVNfk89FCHCDR365647os9AEJ8MKZNvG7UKTpythG",
 ]
 
 SHELLEY_ERR = [
-    # TODO:
-    #    # DelegationSpec.hs
-    #    # specInvalidAddress
-    #    "addr1qdu5vlrf4xkxv2qpwngf6cjhtw542ayty80v8dyr49rf5ewvxwdrt70qlcpeeagscasafhffqsxy36t90ldv06wqrk2q5ggg4z",
-    #    # specInvalidXPub
-    #    "stake_xvk1qfqcf4tp4ensj5qypqs640rt06pe5x7v2eul00c7rakzzvsakw3caelfuh6cg6nrkdv9y2ctkeu",
-    #    # InspectSpec.hs
-    #    # -- 32-byte long script hash
-    #    # specInspectInvalid "Unknown address type" []
-    #    "stake17pshvetj09hxjcm9v9jxgunjv4ehxmr0d3hkcmmvdakx7mrgdp5xscfm7jc",
-    #    # PointerSpec.hs
-    #    # specInvalidAddress
-    #    "addr1qdu5vlrf4xkxv2qpwngf6cjhtw542ayty80v8dyr49rf5ewvxwdrt70qlcpeeagscasafhffqsxy36t90ldv06wqrk2q5ggg4z",
-    #    # RewardSpec.hs
-    #    # specShelley defaultPhrase "1852H/1815H/0H/2/0" 0
-    #    "stake_test1ura3dk68y6echdmfmnvm8mej8u5truwv8ufmv830w5a45tcsfhtt2",
-    #    # specShelley defaultPhrase "1852H/1815H/0H/2/0" 3
-    #    "stake1u0a3dk68y6echdmfmnvm8mej8u5truwv8ufmv830w5a45tchw5z0e",
+    # DelegationSpec.hs
+    # specInvalidAddress
+    "addr1qdu5vlrf4xkxv2qpwngf6cjhtw542ayty80v8dyr49rf5ewvxwdrt70qlcpeeagscasafhffqsxy36t90ldv06wqrk2q5ggg4z",
+    # specInvalidXPub
+    "stake_xvk1qfqcf4tp4ensj5qypqs640rt06pe5x7v2eul00c7rakzzvsakw3caelfuh6cg6nrkdv9y2ctkeu",
+    # InspectSpec.hs
+    # -- 32-byte long script hash
+    # specInspectInvalid "Unknown address type" []
+    "stake17pshvetj09hxjcm9v9jxgunjv4ehxmr0d3hkcmmvdakx7mrgdp5xscfm7jc",
+    # PointerSpec.hs
+    # specInvalidAddress
+    "addr1qdu5vlrf4xkxv2qpwngf6cjhtw542ayty80v8dyr49rf5ewvxwdrt70qlcpeeagscasafhffqsxy36t90ldv06wqrk2q5ggg4z",
+    # RewardSpec.hs
+    # specShelley defaultPhrase "1852H/1815H/0H/2/0" 0
+    "stake_test1ura3dk68y6echdmfmnvm8mej8u5truwv8ufmv830w5a45tcsfhtt2",
+    # specShelley defaultPhrase "1852H/1815H/0H/2/0" 3
+    "stake1u0a3dk68y6echdmfmnvm8mej8u5truwv8ufmv830w5a45tchw5z0e",
 ]
 
 GENERAL_ERR = [
