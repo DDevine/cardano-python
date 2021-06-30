@@ -42,13 +42,33 @@ class TestShelleyAddressOK(BaseTestAddressOK, unittest.TestCase):
     AddressClass = ShelleyAddress
 
 
-class TestAddressERR(unittest.TestCase):
+class BaseTestAddressERR(object):
     def test_address(self):
-        for addr in GENERAL_ERR + BYRON_ERR + ICARUS_ERR + SHELLEY_ERR:
+        for addr in self.address_list:
             with self.assertRaises(ValueError):
                 a = address(addr)
                 # FIXME: hack to present verbose error messages when exception is NOT raised
-                raise AssertionError("{:s} did not raise ValueError and returned \"{}\" of type {}".format(addr, a, type(a)))
+                raise AssertionError(
+                    '{:s} did not raise ValueError and returned "{}" of type {}'.format(
+                        addr, a, type(a)
+                    )
+                )
+
+
+class TestGeneralAddressERR(BaseTestAddressERR, unittest.TestCase):
+    address_list = GENERAL_ERR
+
+
+#class TestByronAddressERR(BaseTestAddressERR, unittest.TestCase):
+#    address_list = BYRON_ERR
+
+
+#class TestIcarusAddressERR(BaseTestAddressERR, unittest.TestCase):
+#    address_list = ICARUS_ERR
+
+
+class TestShelleyAddressERR(BaseTestAddressERR, unittest.TestCase):
+    address_list = SHELLEY_ERR
 
 
 class TestComparisons(unittest.TestCase):

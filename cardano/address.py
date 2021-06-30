@@ -71,36 +71,56 @@ class ByronAddress(Address):
 
     def _validate(self):
         if not self._address.startswith("DdzFF"):
-            raise ValueError("{:s} is not a valid Byron address")
+            raise ValueError("{:s} is not a valid Byron address".format(self._address))
         data = base58.b58decode(self._address)
+
 
 class IcarusAddress(ByronAddress):
     def _validate(self):
         if not self._address.startswith("Ae2"):
-            raise ValueError("{:s} is not a valid Icarus/Byron address")
+            raise ValueError(
+                "{:s} is not a valid Icarus/Byron address".format(self._address)
+            )
         data = base58.b58decode(self._address)
 
 
 class ShelleyAddress(Address):
     era = Era.SHELLEY
-    _prefix_re = re.compile(r'^(addr|stake)(_test)?')
+    _hrp_re = re.compile(r"^(addr|stake)(_test)?")
 
     def _validate(self):
-        if not self._prefix_re.match(self._address):
+        if not self._hrp_re.match(self._address):
             raise ValueError("{:s} is not a valid Shelley address")
-        addr_prefix, data = bech32.bech32_decode(self._address)
-        addr_typ, net_tag = (data[0] & 0xf0) >> 4, data[0] & 0xf
-        print(data)
-        print(addr_typ, net_tag, addr_prefix)
+        hrp, payload = bech32.bech32_decode(self._address)
+        print(self._address)
+        print("{:s} {:s}".format(hrp, "".join(["{:02x}".format(b) for b in payload])))
+        addr_typ, net_tag = (payload[0] & 0xF0) >> 4, payload[0] & 0xF
+        print(hrp)
+        print(payload)
+        print(addr_typ, net_tag)
         #
         # TODO: Perform proper recognition, based on https://github.com/cardano-foundation/CIPs/pull/78
-        if addr_typ > 7:
-            raise ValueError("Shelley address {:s} is of wrong type ({:x})".format(self._address,
-                        addr_typ))
-        if net_tag not in (0,1):
-            raise ValueError("Shelley address {:s} has unsupported net tag ({:x})".format(self._address, net_tag))
-#        if net_tag == 0 and not addr_prefix.endswith("_test"):
-#            raise ValueError("Shelley address {:s} has TESTNET tag but the prefix doesn't end with \"_test\"".format(self._address))
-#        elif net_tag == 1 and addr_prefix.endswith("_test"):
-#            raise ValueError("Shelley address {:s} has MAINNET tag but the prefix ends with \"_test\"".format(self._address))
-        #
+        if addr_typ > 9:
+            raise ValueError(
+                "Shelley address {:s} is of wrong type (0x{:x})".format(
+                    self._address, addr_typ
+                )
+            )
+        if net_tag not in (0, 1):
+            raise ValueError(
+                "Shelley address {:s} has unsupported net tag (0x{:x})".format(
+                    self._address, net_tag
+                )
+            )
+        if net_tag == 0 and not hrp.endswith("_test"):
+            raise ValueError(
+                'Shelley address {:s} has TESTNET tag but the prefix doesn\'t end with "_test"'.format(
+                    self._address
+                )
+            )
+        elif net_tag == 1 and hrp.endswith("_test"):
+            raise ValueError(
+                'Shelley address {:s} has MAINNET tag but the prefix ends with "_test"'.format(
+                    self._address
+                )
+            )
